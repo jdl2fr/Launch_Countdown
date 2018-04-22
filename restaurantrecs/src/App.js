@@ -29,27 +29,9 @@ class App extends Component {
   }
 
   render() {
-    //   const Test = ({ resturants }) => (
-    //     <div>
-    //       {resturants.map(rest => (
-    //         <div className="rest" key={rest.name}>
-    //           {rest.name}
-    //         </div>
-    //       ))}
-    //     </div>
-    //   );
-
-    //   return (
-    //     <div>
-    //       <ul>
-    //         <Test resturant={restruants} />
-    //       </ul>
-    //     </div>
-    //   );
-    // }
-
-    let { resturantArray } = this.state.data.map(resturant => {
-      return <RestaurantList resturant={resturant} />;
+    console.log(this.state.data);
+    let resturantArray = this.state.data.map(resturant => {
+      return <RestaurantList resturantData={resturant} />;
     });
 
     return (

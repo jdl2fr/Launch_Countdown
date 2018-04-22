@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css";
 
 /* PROPS
   data: object of restaurants and scores
@@ -15,20 +16,21 @@ export default class RestaurantList extends Component {
   // render method
   render() {
     let { resturantData } = this.props; //curly bracket becasue its an object
-    console.log({ resturantData });
+    let isOpen;
+    if (resturantData.opening_hours.open_now) {
+      isOpen = "IT'S OPEN NOW!";
+    } else {
+      isOpen = "SORRY! It's not open right now!";
+    }
     return (
       <div>
-        <h6> Name: </h6>
-        <p> {resturantData.name} </p>
-
-        <h6> Rating: </h6>
-        <p> {resturantData.rating} </p>
-
-        <h6> Price Level: </h6>
-        <p> {resturantData.price_level} </p>
-
-        <h6> Is Open?: </h6>
-        <p> {resturantData.opening_hours.open_now} </p>
+        <ul>
+          {" "}
+          Name: {resturantData.name}
+          <li>Rating: {resturantData.rating}</li>
+          <li> Price Level: {resturantData.price_level}</li>
+          <li> Is Open?: {isOpen}</li>
+        </ul>
       </div>
     );
   }
